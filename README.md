@@ -1103,6 +1103,9 @@ allows any JSON shape. JSON-compatible `choices` become `enum` values; duration
 strings are normalized to milliseconds. Representable defaults are exported in coerced form as annotations;
 JSON Schema does not fill in missing values. Avoid putting secrets in schema
 defaults, choices or condition values that will be shared.
+Rules marked `deprecated: true` (or with a message string) export the JSON
+Schema boolean `deprecated: true`; the message form is still used by
+`generateExample`, and `deprecated: false` is omitted.
 
 `requiredIf` becomes [conditional validation](https://json-schema.org/understanding-json-schema/reference/conditionals#if-then-else)
 with `if` / `then`, using `const` for `equals` and `enum` for `in`. Multiple or
